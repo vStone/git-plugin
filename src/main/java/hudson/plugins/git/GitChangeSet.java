@@ -269,6 +269,8 @@ public class GitChangeSet extends ChangeLogSet.Entry {
             user = User.get(csAuthor, false);
 
             if (user == null)
+                user = User.get(csAuthorEmail, false);
+            if (user == null)
                 user = User.get(csAuthorEmail.split("@")[0], true);
         }
         // set email address for user if none is already available
